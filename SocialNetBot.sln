@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetBot.Ui", "SocialNetBot.Ui\SocialNetBot.Ui.csproj", "{1CDE0D8C-E2B9-48A4-9ECB-E967AFEE758E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetBot.Ui", "src\SocialNetBot.Ui\SocialNetBot.Ui.csproj", "{1CDE0D8C-E2B9-48A4-9ECB-E967AFEE758E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B8CA63E3-C43C-4C81-8ABA-9298D25370B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B8DF9B00-D122-478D-914E-589989DB5CA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CDE0D8C-E2B9-48A4-9ECB-E967AFEE758E} = {B8CA63E3-C43C-4C81-8ABA-9298D25370B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3166CE7B-7765-498C-A2E9-52AECDEA3370}
