@@ -6,7 +6,11 @@ namespace SocialNetBot.Ui
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new SocialNetBotBuilder()
+                .Build()
+                .Run();
+
+            Console.ReadKey();
         }
     }
 }
