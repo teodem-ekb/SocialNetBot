@@ -2,7 +2,6 @@
 {
     public interface ISocialNetBotEventHandler
     {
-        string Read();
-        void Write(string message);
+        void Subscribe();
     }
 }

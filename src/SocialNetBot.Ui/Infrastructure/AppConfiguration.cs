@@ -5,15 +5,15 @@ namespace SocialNetBot.Ui.Infrastructure
 {
     public static class AppConfiguration
     {
-        private static IConfiguration Configuration;
+        private static IConfiguration _configuration;
 
         public static IConfiguration GetConfiguration()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
-            Configuration = builder.Build();
-            return Configuration;
+            _configuration = builder.Build();
+            return _configuration;
         }
     }
 }

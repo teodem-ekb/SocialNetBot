@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SocialNetBot.Application.Factories;
 using SocialNetBot.Application.Options;
 using SocialNetBot.Application.Services;
-using SocialNetBot.Application.Twitter;
-using System;
 using SocialNetBot.Application.Services.Interfaces;
+using SocialNetBot.Application.Statistic;
+using System;
 
 
 namespace SocialNetBot.Application.Extensions
@@ -14,10 +15,12 @@ namespace SocialNetBot.Application.Extensions
         {
             return services
                 .Configure(options)
+                .AddScoped<ISocialNetBotEventService, SocialNetBotEventService>()
                 .AddScoped<IBrowserView, BrowserView>()
+                .AddScoped<ICharStatistic, CharStatistic>()
                 .AddScoped<IMessageSeparatorService, MessageSeparatorService>()
                 .AddScoped<ISocialNetAuthorization, SocialNetAuthorization>()
-                .AddSingleton<ISocialNetClient, TwitterSocialNetClient>();
+                .AddSingleton<ISocialNetClientFactory, SocialNetClientFactory>();
         }
     }
 }

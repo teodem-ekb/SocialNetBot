@@ -1,28 +1,28 @@
 ﻿using System;
+using SocialNetBot.Application.Services.Interfaces;
 
 namespace SocialNetBot.Ui.Services
 {
     public class SocialNetBotEventHandler : ISocialNetBotEventHandler
     {
-        //private readonly ITwitterClientEventHandler TwitterClientEventHandler;
+        private readonly ISocialNetBotEventService _socialNetBotEventService;
 
-        //public SocialNetBotEventHandler(ITwitterClientEventHandler twitterClientEventHandler)
-        //{
-        //    TwitterClientEventHandler = twitterClientEventHandler ?? throw new ArgumentNullException(nameof(twitterClientEventHandler));
-        //    Subscribe();
-        //}
+        public SocialNetBotEventHandler(ISocialNetBotEventService socialNetBotEventService)
+        {
+            _socialNetBotEventService = socialNetBotEventService ?? throw new ArgumentNullException(nameof(socialNetBotEventService));
+        }
 
-        //private void Subscribe()
-        //{
-        //    TwitterClientEventHandler.OnReadMessage += Read;
-        //    TwitterClientEventHandler.OnWriteMessage += Write;
-        //}
-        public string Read()
+        public void Subscribe()
+        {
+            _socialNetBotEventService.OnReadMessage += Read;
+            _socialNetBotEventService.OnWriteMessage += Write;
+        }
+        private static string Read()
         {
             return Console.ReadLine();
         }
 
-        public void Write(string message)
+        private static void Write(string message)
         {
             Console.WriteLine(message);
         }

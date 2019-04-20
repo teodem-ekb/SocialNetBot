@@ -1,5 +1,4 @@
-﻿using System;
-using TwitterClient.Exceptions;
+﻿using TwitterClient.Exceptions;
 
 namespace TwitterClient.Options
 {

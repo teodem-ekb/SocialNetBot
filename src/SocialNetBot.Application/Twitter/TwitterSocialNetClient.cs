@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
 using SocialNetBot.Application.Options;
-using SocialNetBot.Application.Services;
+using SocialNetBot.Application.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SocialNetBot.Application.Services.Interfaces;
 using TwitterClient.Client;
 using TwitterClient.Options;
 
@@ -33,7 +32,6 @@ namespace SocialNetBot.Application.Twitter
 
         public bool WritePost(string text)
         {
-            var statuses = new List<string>();
             if (text.Length >= LimitCharsOnTweet)
             {
                 var tweets = _messageSeparator.Separate(text, LimitCharsOnTweet).ToList();

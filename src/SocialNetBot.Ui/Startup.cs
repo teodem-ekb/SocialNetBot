@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 using SocialNetBot.Application;
 using SocialNetBot.Application.Extensions;
 using SocialNetBot.Application.Statistic;
 using SocialNetBot.Application.Twitter;
 using SocialNetBot.Ui.Services;
+using System;
 
 namespace SocialNetBot.Ui
 {
@@ -30,9 +30,7 @@ namespace SocialNetBot.Ui
             });
 
             services.AddSingleton<ISocialNetBotEventHandler, SocialNetBotEventHandler>();
-            services.AddScoped<ICharStatistic, CharStatistic>();
-            services.AddScoped<ISocialNetClient, TwitterSocialNetClient>();
-            services.AddTransient<BotService>();
+            services.AddTransient<IBotService, BotService>();
             return services.BuildServiceProvider();
         }
 
