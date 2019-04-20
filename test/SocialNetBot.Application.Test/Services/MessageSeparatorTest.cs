@@ -8,7 +8,7 @@ namespace SocialNetBot.Application.Test.Services
 {
     public class MessageSeparatorTest
     {
-        [Theory()]
+        [Theory(DisplayName = nameof(SeparateTest))]
         [MemberData(nameof(GetDataForTest))]
         public void SeparateTest(string text, int limit, IEnumerable<string> result)
         {

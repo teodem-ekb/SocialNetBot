@@ -7,7 +7,7 @@ namespace SocialNetBot.Application.Test.Statistic
 {
     public class CharStatisticTest
     {
-        [Theory()]
+        [Theory(DisplayName=nameof(GetFrequencyTest))]
         [MemberData(nameof(GetDataForTest))]
         public void GetFrequencyTest(string text, Dictionary<char, double> result)
         {
