@@ -17,24 +17,14 @@ namespace SocialNetBot.Ui.Services
         //    TwitterClientEventHandler.OnReadMessage += Read;
         //    TwitterClientEventHandler.OnWriteMessage += Write;
         //}
-
-        //public string Read()
-        //{
-        //    return Console.ReadLine();
-        //}
-
-        //public void Write(string message)
-        //{
-        //    Console.WriteLine(message);
-        //}
         public string Read()
         {
-            throw new NotImplementedException();
+            return Console.ReadLine();
         }
 
         public void Write(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
     }
 }

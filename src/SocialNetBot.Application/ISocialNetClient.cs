@@ -6,6 +6,6 @@ namespace SocialNetBot.Application
     {
         IEnumerable<string> ReadUserPosts(string userName, int count);
 
-        void WritePost(string text);
+        bool WritePost(string text);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SocialNetBot.Application.Services.Interfaces;
 
 namespace SocialNetBot.Application.Services
 {

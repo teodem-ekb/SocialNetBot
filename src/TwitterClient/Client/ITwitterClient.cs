@@ -9,6 +9,6 @@ namespace TwitterClient.Client
 
         IEnumerable<string> ReadTweet(string userName, int count);
 
-        string WriteTweet(string text);
+        void WriteTweet(string text);
     }
 }

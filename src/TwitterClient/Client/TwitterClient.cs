@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using TweetSharp;
 using TwitterClient.Exceptions;
 using TwitterClient.Options;
@@ -45,15 +46,17 @@ namespace TwitterClient.Client
             throw new TwitterClientException("Пользователь с таким именем не найден!");
         }
 
-        public string WriteTweet(string text)
+        public void WriteTweet(string text)
         {
-            var statusCode = string.Empty;
+           
             var requestOptions = new SendTweetOptions { Status = text };
             _twitterService.SendTweet(requestOptions, (tweet, response) =>
             {
-                statusCode = response.StatusCode.ToString();
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new TwitterClientException(response.Error.Message);
+                }
             });
-            return statusCode;
         }
     }
 }

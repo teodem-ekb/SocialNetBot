@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SocialNetBot.Application.Services
+namespace SocialNetBot.Application.Services.Interfaces
 {
     public interface IMessageSeparatorService
     {

@@ -4,6 +4,7 @@ using SocialNetBot.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SocialNetBot.Application.Services.Interfaces;
 using TwitterClient.Client;
 using TwitterClient.Options;
 
@@ -30,19 +31,20 @@ namespace SocialNetBot.Application.Twitter
             return _twitterClient.ReadTweet(userName, count);
         }
 
-        public void WritePost(string text)
+        public bool WritePost(string text)
         {
+            var statuses = new List<string>();
             if (text.Length >= LimitCharsOnTweet)
             {
                 var tweets = _messageSeparator.Separate(text, LimitCharsOnTweet).ToList();
-                var s = tweets.Select(x => _twitterClient.WriteTweet(x));
+               tweets.ForEach(x => _twitterClient.WriteTweet(x));
             }
             else
             {
-                var s = _twitterClient.WriteTweet(text);
+                _twitterClient.WriteTweet(text);
             }
 
-            Console.WriteLine("Ok");
+            return true;
         }
 
         private ITwitterClient InitializeClient()

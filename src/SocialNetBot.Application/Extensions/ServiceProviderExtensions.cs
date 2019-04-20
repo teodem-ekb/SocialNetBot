@@ -3,6 +3,7 @@ using SocialNetBot.Application.Options;
 using SocialNetBot.Application.Services;
 using SocialNetBot.Application.Twitter;
 using System;
+using SocialNetBot.Application.Services.Interfaces;
 
 
 namespace SocialNetBot.Application.Extensions

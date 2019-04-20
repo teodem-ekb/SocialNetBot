@@ -19,14 +19,10 @@ namespace SocialNetBot.Application
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        //public event ReadMessage OnReadMessage = () => string.Empty;
-        //public event WriteMessage OnWriteMessage = message => { };
-
         public void Run()
         {
             while (true)
             {
-                //OnWriteMessage("Имя пользователя, чьи посты хотите прочитать.");
                 Console.WriteLine("Имя пользователя, чьи посты хотите прочитать.");
                 var user = Console.ReadLine();
                 if (user == " ")
@@ -43,7 +39,8 @@ namespace SocialNetBot.Application
                 {
                     var messages = _socialNetClient.ReadUserPosts(user, Count);
                     var statistic = _charStatistic.GetFrequency(string.Concat(messages));
-                    _socialNetClient.WritePost(JsonConvert.SerializeObject(statistic));
+                    Console.WriteLine($"{_socialNetClient.WritePost(JsonConvert.SerializeObject(statistic))}" +
+                                      $": {JsonConvert.SerializeObject(statistic)}");
                 }
                 catch (Exception ex)
                 {
@@ -51,10 +48,8 @@ namespace SocialNetBot.Application
                     _logger.LogError(ex.Message);
                 }
 
-
             }
-            Console.Write("Выход!");
-            Console.ReadKey();
+           
         }
     }
 }

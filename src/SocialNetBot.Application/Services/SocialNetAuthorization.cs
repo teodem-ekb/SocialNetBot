@@ -1,4 +1,5 @@
 ﻿using System;
+using SocialNetBot.Application.Services.Interfaces;
 
 namespace SocialNetBot.Application.Services
 {

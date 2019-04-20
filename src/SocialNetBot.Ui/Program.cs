@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using SocialNetBot.Application;
 using SocialNetBot.Ui.Infrastructure;
 using SocialNetBot.Ui.Services;
@@ -15,6 +16,9 @@ namespace SocialNetBot.Ui
 
             serviceProvider.GetRequiredService<ISocialNetBotEventHandler>();
             serviceProvider.GetRequiredService<BotService>().Run();
+
+            Console.Write("Выход!");
+            Console.ReadKey();
         }
     }
 }
