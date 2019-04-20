@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SocialNetBot.Application;
+using SocialNetBot.Ui.Infrastructure;
+using SocialNetBot.Ui.Services;
 
 namespace SocialNetBot.Ui
 {
@@ -6,22 +9,12 @@ namespace SocialNetBot.Ui
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.WriteLine("Имя пользователя, чьи посты хотите прочитать.");
-                var user = Console.ReadLine();
-                if (user == " ")
-                {
-                    break;
-                }
+            var serviceCollection = new ServiceCollection();
+            var startup = new Startup(AppConfiguration.GetConfiguration());
+            var serviceProvider = startup.ConfigureServices(serviceCollection);
 
-                if (!string.IsNullOrEmpty(user))
-                {
-                    
-                }
-            }
-            Console.Write("Выход!");
-            Console.ReadKey();
+            serviceProvider.GetRequiredService<ISocialNetBotEventHandler>();
+            serviceProvider.GetRequiredService<BotService>().Run();
         }
     }
 }
